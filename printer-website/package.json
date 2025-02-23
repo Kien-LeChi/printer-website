@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.21.2",
+    "node": "^23.8.0"
+  },
+  "scripts": {
+    "dev": "nodemon index.js",
+    "build": "tsc",
+    "start": "tsc --watch"
+  },
+  "main": "./src/ts/index.js",
+  "name": "printer-website",
+  "version": "1.0.0",
+  "description": "A website for a printer thingy",
+  "author": "Kien-LeChi",
+  "license": "MIT"
+}
