@@ -1,14 +1,17 @@
 {
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "node": "^23.8.0"
+    "multer": "^1.4.5-lts.1",
+    "node": "^23.8.0",
+    "path": "^0.12.7"
   },
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon serverscript.js",
     "build": "tsc",
     "start": "tsc --watch"
   },
-  "main": "./src/ts/index.js",
+  "main": "serverscript.js",
   "name": "printer-website",
   "version": "1.0.0",
   "description": "A website for a printer thingy",

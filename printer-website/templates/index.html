@@ -4,16 +4,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Printer Portal</title>
-  <link href="../src/css/index.css" rel="stylesheet"/>
-  <script src="../src/js/index.ts" defer></script>
+  <link rel="stylesheet" href="static/css/index.css" type="text/css"/>
+  <script src="static/js/main.js" defer  ></script>
 </head>
 
 <body>
   <h1>Upload your file here</h1>
-  <form id="file-form" method="POST" enctype="multipart/form-data">
+  <form id="file-form">
     <label for="file-upload">Choose a file to print:</label>
     <input type="file" id="file-upload" name="file-upload" accept="application/pdf" />
-    <button>Submit</button>
+    <button id="form-button">Submit</button>
+    <p id="test"></p>
   </form>
 
   <div id="choices">
