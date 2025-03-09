@@ -4,20 +4,39 @@
 <head>
   <meta charset="UTF-8">
   <title>Printer Portal</title>
-  <link rel="stylesheet" href="static/css/index.css" type="text/css"/>
-  <script src="static/js/main.js" defer  ></script>
+  <link rel="stylesheet" href="static/css/index.css" type="text/css" />
+  <script src="static/js/main.js" defer></script>
 </head>
 
 <body>
   <h1>Upload your file here</h1>
-  <form id="file-form">
-    <label for="file-upload">Choose a file to print:</label>
-    <input type="file" id="file-upload" name="file-upload" accept="application/pdf" />
-    <button id="form-button">Submit</button>
-    <p id="test"></p>
+
+  <form id="file-form" enctype="multipart/form-data">
+    <!-- Drag and Drop Section -->
+    <div id="drop-zone">
+      <p>Drag and drop your files here or <label for="file-upload" class="file-label">click to browse</label>.</p>
+    </div>
+    <!-- Regular File Input -->
+    <input type="file" id="file-upload" name="file-upload" accept="application/pdf" multiple />
+
+    <!-- Printer Settings -->
+    <div id="printer-settings">
+      <select name="Color settings" id="colors">
+        <option>Hello</option>
+      </select>
+
+      <input type="number" placeholder="Number of copies" />
+
+      <select name="Page settings">
+        <option>Hi</option>
+      </select>
+
+      <button id="form-button">Submit</button>
+    </div>
   </form>
 
-  <div id="choices">
+
+  <div id="dropdown">
     <h1>Hello</h1>
   </div>
 </body>
