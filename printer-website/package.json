@@ -17,5 +17,8 @@
   "version": "1.0.0",
   "description": "A website for a printer thingy",
   "author": "Kien-LeChi",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "fs-extra": "^11.3.0"
+  }
 }
