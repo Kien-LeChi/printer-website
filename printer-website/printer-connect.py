@@ -104,7 +104,8 @@ def print_files_in_dir(dir_name: str) -> None:
             print(response['error'], f"Error while printing {file_name} at {dir_name}")
             
         elif response['status'] == True:
-            shutil.move(target_path, os.path.join(PROCESS_BASE_DIR, file_name))
+            shutil.move(os.path.join(dir_name, file_name), 
+                        os.path.join(target_path, file_name))
     
     if not failed:
         print(f"Finished printing from {dir_name}")
@@ -139,6 +140,7 @@ def main():
     try:
         while True:
             time.sleep(1)
+                
     finally:
         observer.stop()
         observer.join()

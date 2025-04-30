@@ -37,7 +37,7 @@ const multerStorage = multer.diskStorage({
         const ext = path.extname(file.originalname);
         const baseName = path.basename(file.originalname, ext);
 
-        const newFileName = `${baseName}-${Date.now()}${ext}`;
+        const newFileName = `${baseName}${ext}`;
         cb(null, newFileName);
     },
 })
@@ -45,13 +45,13 @@ const multerStorage = multer.diskStorage({
 const fileUpload = multer({
     storage: multerStorage,
     fileFilter: (req, file, cb) => {
-        const validFileTypes = /.docx|.pdf/;
+        const validFileTypes = /.docx|.pdf|.json/;
         const extname = validFileTypes.test(path.extname(file.originalname).toLowerCase())
 
         if (extname === true) {
             return cb(null, true)
         } else {
-            return cb("Error: PDF and Docx only!")
+            return cb("Error: PDF, Docx and JSON only!")
         }
     },
 })

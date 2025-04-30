@@ -23,6 +23,11 @@ formButton.addEventListener("click", async (e) => {
         formData.append(myFiles.item(key).name, myFiles.item(key));
     });
 
+    const jsonData = { color: 'mono', side: 'double-sided' }
+    const printSettings = new Blob([JSON.stringify(jsonData)], { type: "application/json" });
+
+    formData.append('printsettings', printSettings, 'settings.json');
+
     console.log(formData, typeof formData);
 
     const response = await fetch("/api/upload/", {
