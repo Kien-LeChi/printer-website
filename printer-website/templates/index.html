@@ -22,13 +22,15 @@
     <!-- Printer Settings -->
     <div id="printer-settings">
       <select name="Color settings" id="colors">
-        <option>Hello</option>
+        <option value="mono">Mono color (Black and White)</option>
+		    <option value="color">Colored (RGB)</option>
       </select>
 
-      <input type="number" placeholder="Number of copies" />
+      <input type="number" placeholder="Number of copies" id="copies"/>
 
-      <select name="Page settings">
-        <option>Hi</option>
+      <select name="Page settings" id="pages">
+        <option value="1">One sided</option>
+		    <option value="2">Two sided</option>
       </select>
 
       <button id="form-button">Submit</button>

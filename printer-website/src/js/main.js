@@ -4,6 +4,10 @@ let currentValue = 0;
 const formFile = document.querySelector('#file-upload');
 const dropdown = document.querySelector('#dropdown');
 
+const colors = document.querySelector('#colors');
+const copies = document.querySelector('#copies');
+const pages = document.querySelector('#pages');
+
 console.log("I'm beyond confused");
 const dropZone = document.getElementById("drop-zone");
 const fileInput = document.getElementById("file-upload");
@@ -23,7 +27,11 @@ formButton.addEventListener("click", async (e) => {
         formData.append(myFiles.item(key).name, myFiles.item(key));
     });
 
-    const jsonData = { color: 'mono', side: 'double-sided' }
+    const jsonData = { 
+        'colors': colors.value, 
+        'copies': copies.value,
+        'pages': pages.value
+    }
     const printSettings = new Blob([JSON.stringify(jsonData)], { type: "application/json" });
 
     formData.append('printsettings', printSettings, 'settings.json');
