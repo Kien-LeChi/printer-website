@@ -15,7 +15,7 @@ formButton.addEventListener("click", async (e) => {
     const myFiles = fileInput.files;
     const formData = new FormData();
 
-    const folderName = Date.now();
+    const folderName = Date.now().toString();
     formData.append("folderName", folderName);
     // user unique identifier key
     // formData.append("userID", userID);
@@ -23,12 +23,12 @@ formButton.addEventListener("click", async (e) => {
         formData.append(myFiles.item(key).name, myFiles.item(key));
     });
 
-    const response = await fetch("http://localhost:3000/api/upload/", {
+    console.log(formData, typeof formData);
+
+    const response = await fetch("/api/upload/", {
         method: "POST",
         body: formData
     });
-
-    const jsonData = await response.json();
-    console.log(jsonData);
+    
 });
 

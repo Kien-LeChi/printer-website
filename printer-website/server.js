@@ -4,11 +4,14 @@ const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
 const chokidar = require('chokidar');
+const axios = require('axios');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 app.use(express.json());
 app.use('/static', express.static(path.join(__dirname, 'src')));
+app.use(bodyParser.json());
 
 const baseDir = path.join(__dirname);
 const uploadBaseDir = path.join(__dirname, 'usr/uploaded');
@@ -22,7 +25,7 @@ const processedBaseDir = path.join(__dirname, 'usr/processed');
 
 const multerStorage = multer.diskStorage({
     destination: (req, file, cb) => {
-        const uploadFolder = path.join(uploadBaseDir, req.body.folderName || Date.now());
+        const uploadFolder = path.join(uploadBaseDir, req.body.folderName || Date.now().toString());
 
         if (!fs.existsSync(uploadFolder)) {
             fs.mkdirSync(uploadFolder, { recursive: true });
@@ -63,10 +66,27 @@ app.get('/printer_homepage/', (req, res) => {
     res.sendFile(path.join(__dirname, 'templates/printer.html'));
 })
 
+app.get('/payment', (req, res) => {
+    res.sendFile(path.join(__dirname, 'templates/payment.html'))
+})
 
 /* ALL API ROUTES */
-app.post('/api/upload/', fileUpload.any('file-upload'), (req, res) => {
-    res.json(req.files);
+app.post('/api/upload/', fileUpload.any('file-upload'), async (req, res) => {
+
+    console.log(req.body, typeof req.body);
+
+    const formData = new FormData();
+    const formObject = req.body;
+
+    for (let key in formObject) {
+        formData.append(key, formObject[key]);
+    }
+
+    // const response = await fetch('/api/upload_files/', {
+    //     method: "POST",
+    //     body: formData
+    // });
+    res.sendStatus(200).end();
 })
 
 //      Get latest file uploaded
@@ -77,7 +97,7 @@ app.get('/api/uploads/get', (req, res) => {
 
 // Main app
 const port = 3000;
-app.listen(port, (error) => {
+app.listen(port, "0.0.0.0", (error) => {
     if (error) console.log(`Error while booting server: ${error}.`);
     else {
         console.log(`Server is running on port ${port}.`);

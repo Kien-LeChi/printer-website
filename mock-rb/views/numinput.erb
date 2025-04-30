@@ -1,0 +1,30 @@
+<UiScreen>
+    <AutoTransition>120</AutoTransition>
+    <Operations>    
+        <% if @param[:submit] %>
+            <Op type="Submit" action="<%= @param[:submit] %>"></Op>
+        <% end %>
+<% if @param[:back] %>
+<Op type="Back" action="<%= @param[:back] %>"></Op>
+<% end %>
+</Operations>
+<IoScreen>
+<IoObject>
+<Title><%= @param[:objtitle] %></Title>
+<NumericalArea id="<%= @param[:id] %>">
+<% if @param[:init] != nil %>
+<InitValue><%= @param[:init] %></InitValue>
+<% end %>
+<% if @param[:min] != nil %>
+<MinValue><%= @param[:min] %></MinValue>
+<% end %>
+<% if @param[:max] != nil %>
+<MaxValue><%= @param[:max] %></MaxValue>
+<% end %>
+<% if @param[:mask] != nil %>
+<Mask><%= @param[:mask] ? "true" : "false" %></Mask>
+<% end %>
+</NumericalArea>
+</IoObject>
+</IoScreen>
+</UiScreen>

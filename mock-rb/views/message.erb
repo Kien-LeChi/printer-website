@@ -1,0 +1,20 @@
+<UiScreen>
+  <AutoTransition>120</AutoTransition>
+  <Operations>
+    <% if @param[:submit] %>
+      <Op type="Submit" action="<%= @param[:submit] %>"></Op>
+    <% end %>
+    <%# Note that the URL deployed on 'Back' button is accessed via GET method. %>
+    <% if @param[:back] %>
+      <Op type="Back" action="<%= @param[:back] %>"></Op>
+    <% end %>
+  </Operations>
+  <IoScreen>
+    <IoObject>
+      <Title><%= @param[:objtitle] %></Title>
+      <Message>
+        <%= @param[:msgbody] %>
+      </Message>
+    </IoObject>
+  </IoScreen>
+</UiScreen>

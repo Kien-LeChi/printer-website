@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SerioCommands version="1.0">
+  <IoDirectPrint>
+    <FilePath>serverip/get_file/</FilePath>
+    <ColorMode>Mono</ColorMode>
+    <PaperSize>Letter</PaperSize>
+    <NumCopies>1</NumCopies>
+    <FeedTray>Auto</FeedTray>
+    <JobFinAckUrl>./end.xml</JobFinAckUrl>
+  </IoDirectPrint>
+  <DisplayInfo>
+    <Script>
+    <![CDATA[
+		<?xml version="1.0" encoding="UTF-8"?>
+		<UiScreen>
+            <IoScreen>
+                <IoObject>
+                    <Title>Message Title</Title>
+                    <Message>Please press "OK" button</Message>
+                </IoObject>
+            </IoScreen>
+		</UiScreen>
+	]]>
+    </Script>
+  </DisplayInfo>
+</SerioCommands>
